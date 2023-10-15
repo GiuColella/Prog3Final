@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-//import axios from 'axios';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
@@ -7,25 +7,30 @@ export default function Login () {
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.post('')
+  }
+}
   return (
     <div className='d-flex vh-100 justify-content-center align-items-center bg-primary'>
       <div className='p-3 bg-white w-25'>
-        <form action="">
+        <form onSubmit={handleSubmit}>
         <div className='mb-3'>
           <label htmlFor="email">Email</label>
-          <input type="email" placeholder='Enter Email' className='form-control' />
+          <input type="email" placeholder='Enter Email' className='form-control'
+          onChange={e => setEmail(e.target.value)} />
           </div>
           <div className='mb-3'>
             <label htmlFor="password">Contraseña</label>
-          <input type="password" placeholder='Enter Password' className='form-control'/>
+          <input type="password" placeholder='Enter Password' className='form-control' 
+                    onChange={e => setPassword(e.target.value)} />
           </div>
           <button className='btn btn-success'>Login</button>
         </form>
       </div>
     </div>
   )
-}
 }
 /*export default function Login() {
   const loguear = async () => {
