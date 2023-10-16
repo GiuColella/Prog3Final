@@ -9,7 +9,9 @@ function Login() {
   const [password, setPassword] = useState('')
   function handleSubmit(event) {
     event.preventDefault();
-    axios.post('')
+    axios.post('http://localhost:5173/', {email, password})
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   }
 }
   return (
